@@ -1,0 +1,46 @@
+name: Rust CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment (dev/staging)'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - staging
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+    - uses: actions/checkout@v3
+
+    
+    # - name: Install Rust
+    #   uses: actions-rs/toolchain@v1
+    #   with:
+    #     toolchain: stable
+    #     profile: minimal
+    #     override: true
+
+    - name: Display environment
+      run: echo "environment is ${{vars.RUST_ENV}}"
+    
+    # - name: Build
+    #   run: cargo build --verbose
+    
+    # - name: Run tests
+    #   run: cargo test --verbose
+    
+    # - name: Check formatting
+    #   run: cargo fmt -- --check
+    
+    # - name: Run clippy
+    #   run: cargo clippy -- -D warnings
