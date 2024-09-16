@@ -12,6 +12,7 @@ on:
         - dev
         - staging
         - prod
+        - cs-staging
 
 env:
   CARGO_TERM_COLOR: always
