@@ -11,6 +11,7 @@ on:
         options:
         - dev
         - staging
+        - prod
 
 env:
   CARGO_TERM_COLOR: always
